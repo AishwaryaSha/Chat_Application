@@ -12,7 +12,7 @@ class ChatServer:
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.bind((host, port))
         self.server.listen()
-        self.clients = {}  # username:(client_socket, address)
+        self.clients = {}
         self.db_connection = self.create_db_connection()
 
     def create_db_connection(self):
@@ -20,8 +20,8 @@ class ChatServer:
             connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='Aishwarya!123',
-                database='chatapp'
+                password='',
+                database=''
             )
             return connection
         except Error as e:
@@ -356,3 +356,4 @@ class ChatServer:
 if __name__ == "__main__":
     server = ChatServer()
     server.start()
+
